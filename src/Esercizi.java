@@ -1,15 +1,16 @@
 import java.util.Arrays;
+import java.util.Calendar;
 
 public class Esercizi {
 
     public static Object[][] createArrV1(String str){
 
-        str = removeBlank(str);
+        String new_str = removeBlank(str);
 
-        Object[][] array = new Object[2][str.length()];
-        for (int i = 0; i<str.length(); i++) {
-           array[0][i] = str.charAt(i);
-           array[1][i] = (int) str.charAt(i);
+        Object[][] array = new Object[2][new_str.length()];
+        for (int i = 0; i<new_str.length(); i++) {
+           array[0][i] = new_str.charAt(i);
+           array[1][i] = (int) new_str.charAt(i);
         }
 
         return array;
@@ -56,9 +57,11 @@ public class Esercizi {
         int index = 0;
 
         for (int i = 0; i < str.length(); i++) {
+
             char c = str.charAt(i);
 
             /*
+            // TODO: add other "blank" cases 14/06/2022
             switch (Character.toString(c)) {
                 case ' ':
                     blank_arr[0][index] = "\' \'";
@@ -76,6 +79,7 @@ public class Esercizi {
             */
 
             if ((Character.toString(c)).isBlank()) {
+
                 blank_arr[0][index] = "' '";
                 blank_arr[1][index] = (int) c;
                 index += 1;
@@ -91,7 +95,7 @@ public class Esercizi {
 
         for (int i = 0; i < str.length(); i++) {
             char c = str.charAt(i);
-            if (c != ' ' && c != '\n') {
+            if (!(Character.toString(c).isBlank())) {
                 new_str += c;
             }
         }
@@ -103,8 +107,6 @@ public class Esercizi {
         String str = "AA 2 Z  \nA";
 
         System.out.println(Arrays.deepToString(createArrV1(str)));
-
         createArrV2(str);
-
     }
 }
