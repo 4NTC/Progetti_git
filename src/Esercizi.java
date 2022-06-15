@@ -61,8 +61,7 @@ public class Esercizi {
             char c = str.charAt(i);
 
             /*
-            // TODO: add other "blank" cases 14/06/2022
-            switch (Character.toString(c)) {
+            switch (c) {
                 case ' ':
                     blank_arr[0][index] = "\' \'";
                     blank_arr[1][index] = (int) c;
@@ -70,6 +69,11 @@ public class Esercizi {
                     break;
                 case '\n':
                     blank_arr[0][index] = "\\n";
+                    blank_arr[1][index] = (int) c;
+                    index += 1;
+                    break;
+                case '\t':
+                    blank_arr[0][index] = "\\t";
                     blank_arr[1][index] = (int) c;
                     index += 1;
                     break;
